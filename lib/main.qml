@@ -8,6 +8,7 @@ ApplicationWindow {
     visible: true
     width: 640
     height: 480
+    opacity: opacityChanger.value
     title: qsTr("qml live application")
 
     function reload(url) {
@@ -26,7 +27,6 @@ ApplicationWindow {
         }
 
         Label {
-            id: warningLabel
             anchors {
                 left: parent.left
                 right: parent.right
@@ -71,6 +71,14 @@ ApplicationWindow {
                 width: 80
                 text: qsTr("Restart app")
                 onClicked: LiveApp.restartApplication()
+            }
+            Slider {
+                id: opacityChanger
+                from: 0.2
+                to: 1.0
+                value: 1.0
+                width: 150
+                height: 20
             }
         }
 
